@@ -1,0 +1,6 @@
+# Ignore all MP4 video files
+*.mp4
+*.MP4
+*.node_modules
+*.wav
+*.DS_Store
