@@ -1,0 +1,261 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <style>
+      .title { font: bold 26px sans-serif; fill: #2c3e50; }
+      .section-title { font: bold 18px sans-serif; fill: #34495e; }
+      .label { font: 14px sans-serif; fill: #2c3e50; }
+      .small { font: 12px sans-serif; fill: #7f8c8d; }
+      .tiny { font: 10px sans-serif; fill: #95a5a6; }
+      .box { stroke: #34495e; stroke-width: 2; fill: #fff; }
+      .server { stroke: #2E5C8A; stroke-width: 3; fill: #4A90E2; }
+      .encoder { stroke: #27AE60; stroke-width: 2; fill: #2ECC71; }
+      .client { stroke: #E67E22; stroke-width: 2; fill: #F39C12; }
+      .storage { stroke: #9B59B6; stroke-width: 2; fill: #BB8FCE; }
+      .monitoring { stroke: #E74C3C; stroke-width: 2; fill: #EC7063; }
+      .arrow { stroke: #34495e; stroke-width: 2; fill: none; }
+      .arrow-srt { stroke: #4A90E2; stroke-width: 3; fill: none; }
+      .arrow-data { stroke: #E67E22; stroke-width: 2; fill: none; stroke-dasharray: 5,5; }
+      .group-bg { fill: #f8f9fa; stroke: #dee2e6; stroke-width: 1; rx: 10; }
+      .text-white { fill: #fff; }
+      .highlight { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; }
+    </style>
+    <marker id="arrow-end" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#34495e" />
+    </marker>
+    <marker id="arrow-srt-end" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4A90E2" />
+    </marker>
+    <marker id="arrow-data-end" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#E67E22" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="700" y="45" text-anchor="middle" class="title">Complete SRT Stream Server System</text>
+
+  <!-- INPUT SECTION -->
+  <rect x="30" y="80" width="280" height="380" class="group-bg"/>
+  <text x="170" y="110" text-anchor="middle" class="section-title">📹 Video Sources</text>
+
+  <!-- Camera -->
+  <rect x="50" y="130" width="120" height="70" class="encoder" rx="5"/>
+  <text x="110" y="155" text-anchor="middle" class="label text-white">📷 Camera</text>
+  <text x="110" y="175" text-anchor="middle" class="small text-white">Live Capture</text>
+  <text x="110" y="190" text-anchor="middle" class="tiny text-white">1920x1080@30fps</text>
+
+  <!-- File -->
+  <rect x="180" y="130" width="120" height="70" class="encoder" rx="5"/>
+  <text x="240" y="155" text-anchor="middle" class="label text-white">📁 File</text>
+  <text x="240" y="175" text-anchor="middle" class="small text-white">VOD Content</text>
+  <text x="240" y="190" text-anchor="middle" class="tiny text-white">MP4/MKV/AVI</text>
+
+  <!-- Screen -->
+  <rect x="50" y="220" width="120" height="70" class="encoder" rx="5"/>
+  <text x="110" y="245" text-anchor="middle" class="label text-white">🖥️ Screen</text>
+  <text x="110" y="265" text-anchor="middle" class="small text-white">Desktop Share</text>
+  <text x="110" y="280" text-anchor="middle" class="tiny text-white">Screen Recording</text>
+
+  <!-- OBS -->
+  <rect x="180" y="220" width="120" height="70" class="encoder" rx="5"/>
+  <text x="240" y="245" text-anchor="middle" class="label text-white">🎬 OBS Studio</text>
+  <text x="240" y="265" text-anchor="middle" class="small text-white">Professional</text>
+  <text x="240" y="280" text-anchor="middle" class="tiny text-white">Scenes + Overlays</text>
+
+  <!-- FFmpeg Encoder -->
+  <rect x="50" y="310" width="250" height="130" class="highlight" rx="5"/>
+  <text x="175" y="335" text-anchor="middle" class="section-title">🔧 FFmpeg Encoder</text>
+  
+  <text x="175" y="365" text-anchor="middle" class="small">Video: H.264/H.265 (x264/x265)</text>
+  <text x="175" y="383" text-anchor="middle" class="small">Audio: AAC/Opus</text>
+  <text x="175" y="401" text-anchor="middle" class="small">Container: MPEG-TS</text>
+  <text x="175" y="419" text-anchor="middle" class="small">Bitrate: 2500 Kbps</text>
+
+  <!-- Arrows from sources to FFmpeg -->
+  <path d="M 110 200 L 110 310" class="arrow" marker-end="url(#arrow-end)"/>
+  <path d="M 240 200 L 240 310" class="arrow" marker-end="url(#arrow-end)"/>
+  <path d="M 110 290 L 110 310" class="arrow" marker-end="url(#arrow-end)"/>
+  <path d="M 240 290 L 240 310" class="arrow" marker-end="url(#arrow-end)"/>
+
+  <!-- CORE SERVER SECTION -->
+  <rect x="360" y="80" width="440" height="750" class="group-bg"/>
+  <text x="580" y="110" text-anchor="middle" class="section-title">🖥️ SRT Stream Server (Node.js)</text>
+
+  <!-- SRT Listener -->
+  <rect x="380" y="130" width="400" height="70" class="server" rx="5"/>
+  <text x="580" y="155" text-anchor="middle" class="label text-white">🌐 SRT Listener</text>
+  <text x="580" y="175" text-anchor="middle" class="small text-white">UDP Port 9000 | Handshake Handler</text>
+  <text x="580" y="190" text-anchor="middle" class="tiny text-white">SRT Protocol v1.4+ | Encryption Ready</text>
+
+  <!-- Connection Manager -->
+  <rect x="380" y="220" width="400" height="65" class="server" rx="5"/>
+  <text x="580" y="245" text-anchor="middle" class="label text-white">🔌 Connection Manager</text>
+  <text x="580" y="265" text-anchor="middle" class="small text-white">Client Registry | Authentication | Session Control</text>
+
+  <!-- Stream Manager -->
+  <rect x="380" y="305" width="400" height="65" class="server" rx="5"/>
+  <text x="580" y="330" text-anchor="middle" class="label text-white">📊 Stream Manager</text>
+  <text x="580" y="350" text-anchor="middle" class="small text-white">Stream Routing | Quality Control | Metadata</text>
+
+  <!-- Packet Buffer -->
+  <rect x="380" y="390" width="190" height="70" class="server" rx="5"/>
+  <text x="475" y="415" text-anchor="middle" class="label text-white">📦 Buffer</text>
+  <text x="475" y="435" text-anchor="middle" class="small text-white">Packet Queue</text>
+  <text x="475" y="450" text-anchor="middle" class="tiny text-white">Jitter Compensation</text>
+
+  <!-- Encryption -->
+  <rect x="590" y="390" width="190" height="70" class="server" rx="5"/>
+  <text x="685" y="415" text-anchor="middle" class="label text-white">🔒 Encryption</text>
+  <text x="685" y="435" text-anchor="middle" class="small text-white">AES-128/256</text>
+  <text x="685" y="450" text-anchor="middle" class="tiny text-white">Key Management</text>
+
+  <!-- ARQ Handler -->
+  <rect x="380" y="480" width="190" height="70" class="server" rx="5"/>
+  <text x="475" y="505" text-anchor="middle" class="label text-white">🔄 ARQ</text>
+  <text x="475" y="525" text-anchor="middle" class="small text-white">Packet Recovery</text>
+  <text x="475" y="540" text-anchor="middle" class="tiny text-white">Loss Detection</text>
+
+  <!-- FEC Handler -->
+  <rect x="590" y="480" width="190" height="70" class="server" rx="5"/>
+  <text x="685" y="505" text-anchor="middle" class="label text-white">📡 FEC</text>
+  <text x="685" y="525" text-anchor="middle" class="small text-white">Error Correction</text>
+  <text x="685" y="540" text-anchor="middle" class="tiny text-white">Forward Redundancy</text>
+
+  <!-- Stream Relay -->
+  <rect x="380" y="570" width="400" height="70" class="server" rx="5"/>
+  <text x="580" y="595" text-anchor="middle" class="label text-white">🚀 Stream Relay</text>
+  <text x="580" y="615" text-anchor="middle" class="small text-white">Multi-client Distribution | Load Balancing</text>
+  <text x="580" y="630" text-anchor="middle" class="tiny text-white">Fan-out Engine</text>
+
+  <!-- Performance Monitor -->
+  <rect x="380" y="660" width="190" height="65" class="monitoring" rx="5"/>
+  <text x="475" y="685" text-anchor="middle" class="label text-white">📈 Monitor</text>
+  <text x="475" y="705" text-anchor="middle" class="small text-white">Performance</text>
+
+  <!-- Logger -->
+  <rect x="590" y="660" width="190" height="65" class="monitoring" rx="5"/>
+  <text x="685" y="685" text-anchor="middle" class="label text-white">📝 Logger</text>
+  <text x="685" y="705" text-anchor="middle" class="small text-white">Events & Errors</text>
+
+  <!-- Stats Collector -->
+  <rect x="380" y="745" width="190" height="65" class="monitoring" rx="5"/>
+  <text x="475" y="770" text-anchor="middle" class="label text-white">📊 Stats</text>
+  <text x="475" y="790" text-anchor="middle" class="small text-white">Analytics</text>
+
+  <!-- Health Check -->
+  <rect x="590" y="745" width="190" height="65" class="monitoring" rx="5"/>
+  <text x="685" y="770" text-anchor="middle" class="label text-white">💊 Health</text>
+  <text x="685" y="790" text-anchor="middle" class="small text-white">System Check</text>
+
+  <!-- Internal Server Arrows -->
+  <path d="M 580 200 L 580 220" class="arrow" marker-end="url(#arrow-end)"/>
+  <path d="M 580 285 L 580 305" class="arrow" marker-end="url(#arrow-end)"/>
+  <path d="M 580 370 L 475 390" class="arrow" marker-end="url(#arrow-end)"/>
+  <path d="M 580 370 L 685 390" class="arrow" marker-end="url(#arrow-end)"/>
+  <path d="M 475 460 L 475 480" class="arrow" marker-end="url(#arrow-end)"/>
+  <path d="M 685 460 L 685 480" class="arrow" marker-end="url(#arrow-end)"/>
+  <path d="M 475 550 L 530 570" class="arrow" marker-end="url(#arrow-end)"/>
+  <path d="M 685 550 L 630 570" class="arrow" marker-end="url(#arrow-end)"/>
+
+  <!-- SRT Arrow from FFmpeg to Server -->
+  <path d="M 300 375 L 380 165" class="arrow-srt" marker-end="url(#arrow-srt-end)"/>
+  <text x="340" y="260" class="small" fill="#4A90E2">SRT Stream</text>
+  <text x="340" y="275" class="small" fill="#4A90E2">MPEG-TS</text>
+  <text x="340" y="290" class="small" fill="#4A90E2">Encrypted</text>
+
+  <!-- VIEWER SECTION -->
+  <rect x="850" y="80" width="520" height="480" class="group-bg"/>
+  <text x="1110" y="110" text-anchor="middle" class="section-title">📺 Viewers / Clients</text>
+
+  <!-- Desktop Players -->
+  <rect x="870" y="140" width="130" height="60" class="client" rx="5"/>
+  <text x="935" y="165" text-anchor="middle" class="label text-white">FFplay</text>
+  <text x="935" y="185" text-anchor="middle" class="tiny text-white">FFmpeg Player</text>
+
+  <rect x="1020" y="140" width="130" height="60" class="client" rx="5"/>
+  <text x="1085" y="165" text-anchor="middle" class="label text-white">VLC</text>
+  <text x="1085" y="185" text-anchor="middle" class="tiny text-white">Cross-platform</text>
+
+  <rect x="1170" y="140" width="130" height="60" class="client" rx="5"/>
+  <text x="1235" y="165" text-anchor="middle" class="label text-white">mpv</text>
+  <text x="1235" y="185" text-anchor="middle" class="tiny text-white">Minimal Player</text>
+
+  <!-- Web Players -->
+  <rect x="870" y="220" width="130" height="60" class="client" rx="5"/>
+  <text x="935" y="245" text-anchor="middle" class="label text-white">🌐 Web</text>
+  <text x="935" y="265" text-anchor="middle" class="tiny text-white">Browser Player</text>
+
+  <rect x="1020" y="220" width="130" height="60" class="client" rx="5"/>
+  <text x="1085" y="245" text-anchor="middle" class="label text-white">📱 Mobile</text>
+  <text x="1085" y="265" text-anchor="middle" class="tiny text-white">iOS/Android</text>
+
+  <rect x="1170" y="220" width="130" height="60" class="client" rx="5"/>
+  <text x="1235" y="245" text-anchor="middle" class="label text-white">📺 Smart TV</text>
+  <text x="1235" y="265" text-anchor="middle" class="tiny text-white">TV Apps</text>
+
+  <!-- Custom Apps -->
+  <rect x="870" y="300" width="190" height="60" class="client" rx="5"/>
+  <text x="965" y="325" text-anchor="middle" class="label text-white">🔧 Custom App</text>
+  <text x="965" y="345" text-anchor="middle" class="tiny text-white">API Integration</text>
+
+  <rect x="1110" y="300" width="190" height="60" class="client" rx="5"/>
+  <text x="1205" y="325" text-anchor="middle" class="label text-white">🎮 Gaming</text>
+  <text x="1205" y="345" text-anchor="middle" class="tiny text-white">Low-latency Gaming</text>
+
+  <!-- Latency Info -->
+  <rect x="870" y="380" width="430" height="160" class="highlight" rx="5"/>
+  <text x="1085" y="410" text-anchor="middle" class="section-title">⚡ Stream Quality</text>
+  
+  <text x="1085" y="440" text-anchor="middle" class="small">• Latency: 120-200ms (Ultra-low)</text>
+  <text x="1085" y="460" text-anchor="middle" class="small">• Bitrate: 2500-5000 Kbps</text>
+  <text x="1085" y="480" text-anchor="middle" class="small">• Resolution: Up to 4K</text>
+  <text x="1085" y="500" text-anchor="middle" class="small">• FPS: Up to 60fps</text>
+  <text x="1085" y="520" text-anchor="middle" class="small">• Concurrent Viewers: 100+</text>
+
+  <!-- Arrows from Server to Viewers -->
+  <path d="M 780 605 L 870 170" class="arrow-srt" marker-end="url(#arrow-srt-end)"/>
+  <path d="M 780 605 L 1020 170" class="arrow-srt" marker-end="url(#arrow-srt-end)"/>
+  <path d="M 780 605 L 1170 170" class="arrow-srt" marker-end="url(#arrow-srt-end)"/>
+  <path d="M 780 605 L 870 250" class="arrow-srt" marker-end="url(#arrow-srt-end)"/>
+  <path d="M 780 605 L 1020 250" class="arrow-srt" marker-end="url(#arrow-srt-end)"/>
+  <path d="M 780 605 L 1170 250" class="arrow-srt" marker-end="url(#arrow-srt-end)"/>
+  <path d="M 780 605 L 870 330" class="arrow-srt" marker-end="url(#arrow-srt-end)"/>
+  <path d="M 780 605 L 1110 330" class="arrow-srt" marker-end="url(#arrow-srt-end)"/>
+
+  <!-- STORAGE SECTION -->
+  <rect x="850" y="590" width="250" height="240" class="group-bg"/>
+  <text x="975" y="620" text-anchor="middle" class="section-title">💾 Storage</text>
+
+  <rect x="870" y="640" width="210" height="60" class="storage" rx="5"/>
+  <text x="975" y="665" text-anchor="middle" class="label text-white">📼 Recorder</text>
+  <text x="975" y="685" text-anchor="middle" class="tiny text-white">Stream Archive</text>
+
+  <rect x="870" y="720" width="210" height="60" class="storage" rx="5"/>
+  <text x="975" y="745" text-anchor="middle" class="label text-white">☁️ Cloud</text>
+  <text x="975" y="765" text-anchor="middle" class="tiny text-white">S3/GCS Storage</text>
+
+  <!-- Data arrows to storage -->
+  <path d="M 780 605 L 870 670" class="arrow-data" marker-end="url(#arrow-data-end)"/>
+  <path d="M 975 700 L 975 720" class="arrow" marker-end="url(#arrow-end)"/>
+
+  <!-- TOOLS SECTION -->
+  <rect x="1120" y="590" width="250" height="240" class="group-bg"/>
+  <text x="1245" y="620" text-anchor="middle" class="section-title">🛠️ Tools</text>
+
+  <rect x="1140" y="640" width="210" height="60" class="monitoring" rx="5"/>
+  <text x="1245" y="665" text-anchor="middle" class="label text-white">🧪 Load Test</text>
+  <text x="1245" y="685" text-anchor="middle" class="tiny text-white">load-test.js</text>
+
+  <rect x="1140" y="720" width="210" height="60" class="monitoring" rx="5"/>
+  <text x="1245" y="745" text-anchor="middle" class="label text-white">🔄 Converter</text>
+  <text x="1245" y="765" text-anchor="middle" class="tiny text-white">convert.py</text>
+
+  <!-- Monitoring arrows -->
+  <path d="M 475 725 L 1140 670" class="arrow-data" marker-end="url(#arrow-data-end)"/>
+  <path d="M 685 725 L 1140 750" class="arrow-data" marker-end="url(#arrow-data-end)"/>
+
+  <!-- Legend -->
+  <rect x="30" y="850" width="1340" height="35" rx="5" fill="#e8f4f8" stroke="#4A90E2"/>
+  <text x="700" y="873" text-anchor="middle" class="small">
+    🔹 Solid Lines: Data Flow  |  🔹 Dashed Lines: Monitoring/Control  |  🔹 Blue: SRT Protocol  |  🔹 Orange: HTTP/WebSocket
+  </text>
+</svg>

@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400">
+  <defs>
+    <style>
+      .title { font: bold 20px sans-serif; fill: #2c3e50; }
+      .label { font: 14px sans-serif; fill: #2c3e50; }
+      .small { font: 11px sans-serif; fill: #7f8c8d; }
+      .box { stroke: #34495e; stroke-width: 2; fill: #fff; }
+      .highlight { stroke: #2E5C8A; stroke-width: 3; fill: #4A90E2; }
+      .arrow { stroke: #4A90E2; stroke-width: 3; fill: none; }
+      .text-white { fill: #fff; }
+    </style>
+    <defs>
+      <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#4A90E2" />
+      </marker>
+    </defs>
+  </defs>
+
+  <text x="500" y="35" text-anchor="middle" class="title">SRT Stream Flow</text>
+
+  <!-- Input -->
+  <rect x="50" y="80" width="120" height="240" rx="8" class="box"/>
+  <text x="110" y="110" text-anchor="middle" class="label">📹</text>
+  <text x="110" y="135" text-anchor="middle" class="label">Input</text>
+  <text x="110" y="155" text-anchor="middle" class="label">Sources</text>
+  
+  <text x="110" y="190" text-anchor="middle" class="small">• Camera</text>
+  <text x="110" y="210" text-anchor="middle" class="small">• Video File</text>
+  <text x="110" y="230" text-anchor="middle" class="small">• Screen</text>
+  <text x="110" y="250" text-anchor="middle" class="small">• OBS</text>
+  <text x="110" y="280" text-anchor="middle" class="small">Raw Video</text>
+  <text x="110" y="295" text-anchor="middle" class="small">Uncompressed</text>
+
+  <!-- Arrow 1 -->
+  <path d="M 170 200 L 230 200" class="arrow" marker-end="url(#arrow)"/>
+  <text x="200" y="195" text-anchor="middle" class="small">Raw</text>
+
+  <!-- FFmpeg -->
+  <rect x="230" y="120" width="140" height="160" rx="8" class="box"/>
+  <text x="300" y="150" text-anchor="middle" class="label">🔧</text>
+  <text x="300" y="175" text-anchor="middle" class="label">FFmpeg</text>
+  <text x="300" y="195" text-anchor="middle" class="label">Encoder</text>
+  
+  <text x="300" y="225" text-anchor="middle" class="small">Video: H.264</text>
+  <text x="300" y="242" text-anchor="middle" class="small">Audio: AAC</text>
+  <text x="300" y="259" text-anchor="middle" class="small">Container: TS</text>
+
+  <!-- Arrow 2 -->
+  <path d="M 370 200 L 430 200" class="arrow" marker-end="url(#arrow)"/>
+  <text x="400" y="185" text-anchor="middle" class="small" fill="#4A90E2">SRT Stream</text>
+  <text x="400" y="200" text-anchor="middle" class="small" fill="#4A90E2">MPEG-TS</text>
+  <text x="400" y="215" text-anchor="middle" class="small" fill="#4A90E2">Encrypted</text>
+
+  <!-- Server -->
+  <rect x="430" y="80" width="160" height="240" rx="8" class="highlight"/>
+  <text x="510" y="110" text-anchor="middle" class="label text-white">🖥️</text>
+  <text x="510" y="135" text-anchor="middle" class="label text-white">SRT Server</text>
+  <text x="510" y="155" text-anchor="middle" class="label text-white">Node.js</text>
+  
+  <rect x="445" y="170" width="130" height="35" rx="4" fill="#357ABD" stroke="#1E4D7B" stroke-width="1"/>
+  <text x="510" y="192" text-anchor="middle" class="small text-white">Listener :9000</text>
+
+  <rect x="445" y="215" width="130" height="35" rx="4" fill="#357ABD" stroke="#1E4D7B" stroke-width="1"/>
+  <text x="510" y="237" text-anchor="middle" class="small text-white">Manager</text>
+
+  <rect x="445" y="260" width="130" height="35" rx="4" fill="#357ABD" stroke="#1E4D7B" stroke-width="1"/>
+  <text x="510" y="282" text-anchor="middle" class="small text-white">Relay</text>
+
+  <!-- Arrow 3 -->
+  <path d="M 590 200 L 650 200" class="arrow" marker-end="url(#arrow)"/>
+  <text x="620" y="185" text-anchor="middle" class="small" fill="#4A90E2">Distribute</text>
+  <text x="620" y="200" text-anchor="middle" class="small" fill="#4A90E2">&lt; 200ms</text>
+  <text x="620" y="215" text-anchor="middle" class="small" fill="#4A90E2">latency</text>
+
+  <!-- Viewers -->
+  <rect x="650" y="80" width="300" height="240" rx="8" class="box"/>
+  <text x="800" y="110" text-anchor="middle" class="label">📺</text>
+  <text x="800" y="135" text-anchor="middle" class="label">Viewers</text>
+  
+  <g transform="translate(670, 160)">
+    <rect x="0" y="0" width="80" height="40" rx="4" fill="#F39C12" stroke="#E67E22" stroke-width="1"/>
+    <text x="40" y="25" text-anchor="middle" class="small text-white">FFplay</text>
+  </g>
+  
+  <g transform="translate(760, 160)">
+    <rect x="0" y="0" width="80" height="40" rx="4" fill="#F39C12" stroke="#E67E22" stroke-width="1"/>
+    <text x="40" y="25" text-anchor="middle" class="small text-white">VLC</text>
+  </g>
+  
+  <g transform="translate(850, 160)">
+    <rect x="0" y="0" width="80" height="40" rx="4" fill="#F39C12" stroke="#E67E22" stroke-width="1"/>
+    <text x="40" y="25" text-anchor="middle" class="small text-white">Web</text>
+  </g>
+  
+  <g transform="translate(670, 215)">
+    <rect x="0" y="0" width="80" height="40" rx="4" fill="#F39C12" stroke="#E67E22" stroke-width="1"/>
+    <text x="40" y="25" text-anchor="middle" class="small text-white">mpv</text>
+  </g>
+  
+  <g transform="translate(760, 215)">
+    <rect x="0" y="0" width="80" height="40" rx="4" fill="#F39C12" stroke="#E67E22" stroke-width="1"/>
+    <text x="40" y="25" text-anchor="middle" class="small text-white">Mobile</text>
+  </g>
+  
+  <g transform="translate(850, 215)">
+    <rect x="0" y="0" width="80" height="40" rx="4" fill="#F39C12" stroke="#E67E22" stroke-width="1"/>
+    <text x="40" y="25" text-anchor="middle" class="small text-white">TV</text>
+  </g>
+
+  <text x="800" y="290" text-anchor="middle" class="small">Multiple concurrent viewers</text>
+  <text x="800" y="305" text-anchor="middle" class="small">Low latency playback</text>
+
+  <!-- Bottom Info -->
+  <rect x="50" y="350" width="900" height="35" rx="5" fill="#f8f9fa" stroke="#dee2e6"/>
+  <text x="500" y="373" text-anchor="middle" class="small" fill="#495057">
+    🔒 AES Encryption  |  📦 Packet Recovery  |  ⚡ 120-200ms Latency  |  🌐 NAT Traversal  |  📊 Adaptive Bitrate
+  </text>
+</svg>

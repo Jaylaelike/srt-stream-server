@@ -212,12 +212,51 @@ For issues, questions, or contributions:
 - **Issues**: [GitHub Issues](https://github.com/Jaylaelike/srt-stream-server/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/Jaylaelike/srt-stream-server/discussions)
 
-## Acknowledgments
+## Architecture
 
-- Built on the [Haivision SRT](https://github.com/Haivision/srt) protocol
-- Inspired by various open-source SRT server implementations
-- Thanks to all contributors and the SRT Alliance community
+This section shows all architecture and data-flow diagrams included in the `assets/` folder.
 
----
+- **Network topology:**
 
-**Note:** Replace configuration examples and commands with specifics from your actual implementation.
+  ![Network topology](assets/Network-topology.svg)
+
+- **Main architecture (variant 1):**
+
+  ![Architecture diagram](assets/architecture.svg)
+
+- **Complete architecture (detailed):**
+
+  ![Complete architecture](assets/complete-architecture.svg)
+
+- **Data flow (PNG):**
+
+  ![Data flow PNG](assets/data-flow.png)
+
+- **Data flow (SVG):**
+
+  ![Data flow SVG](assets/data-flow.svg)
+
+- **Alternative architecture diagram:**
+
+  ![Alternative architecture](assets/diageam-architecture.svg)
+
+
+## SRT URL Parameters
+
+Customize your stream with SRT parameters:
+
+```
+srt://localhost:9000?streamid=live/mystream&latency=200&passphrase=secret123
+```
+
+**Common parameters:**
+
+| Parameter | Description | Default | Example |
+|-----------|-------------|---------|---------|
+| `streamid` | Unique stream identifier | - | `live/stream1` |
+| `latency` | Latency in milliseconds | 120 | `200` |
+| `passphrase` | Encryption key (10-79 chars) | - | `mypassword123` |
+| `pbkeylen` | Encryption key length | 0 | `16`, `24`, `32` |
+| `maxbw` | Max bandwidth (bytes/sec) | -1 | `5000000` |
+| `mode` | Connection mode | caller | `caller`, `listener` |
+
